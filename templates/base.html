@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Personal Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/foundation.min.css">
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text"> My Personal Blog</li><br>
+        </ul>
+    </div>
+</div>
+
+{% if user.username %}
+
+<div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="dropdown menu " data-dropdown-menu>
+            <li class="menu-text"> welcome {{ user.username }} </li>
+            </ul>
+        </div>
+
+
+        <div class="top-bar-right">
+            <form  method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit"><b>Logout</b></button>
+            </form>
+        </div>
+
+</div>
+
+{% endif %}
+
+{% block content %}
+
+{% endblock content %}
+
+</body>
+</html>

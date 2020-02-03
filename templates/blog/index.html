@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+{% for p in posts %}
+    <div class="tabs-panel is-active">
+    <b>{{ p.id }}. {{ p.title }}</b> by <i> {{ p.author }} </i>
+        </div>
+{% endfor %}
+
+{% endblock content%}
